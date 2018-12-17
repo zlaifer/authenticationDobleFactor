@@ -23,8 +23,8 @@
   <xsd:element name="createNewSmsOtpCodeResponse">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element name="resultCode" type="xsd:int"/>
-        <xsd:element name="resultDescription" type="xsd:string"/>
+        <xsd:element name="resultCode" type="xsd:int" minOccurs="0"/>
+        <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
