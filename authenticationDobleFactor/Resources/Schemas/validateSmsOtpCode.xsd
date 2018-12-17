@@ -27,6 +27,7 @@
       <xsd:element name="sharedKey" type="xsd:string" minOccurs="0"/>
       <xsd:element name="otpCode" type="xsd:string"/>
       <xsd:element name="contextBind" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="canal" minOccurs="0" type="xsd:string"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="validateSmsOtpCode_RS">
