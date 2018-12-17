@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions targetNamespace="urn:authenticationDobleFactor" xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="urn:authenticationDobleFactor" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+             xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:create="http://createnewsmsotpcode.claro.com.co/"
+             >
+  <types>
+    <xsd:schema targetNamespace="urn:authenticationDobleFactor/types" elementFormDefault="qualified"/>
+    <xsd:schema>
+      <xsd:import schemaLocation="../Schemas/createNewSmsOtpCode.xsd"
+                  namespace="http://createnewsmsotpcode.claro.com.co/"/>
+    </xsd:schema>
+  </types>
+  <message name="createNewSmsOtpCodeRequest">
+    <part name="createNewSmsOtpCodeRequest" element="create:createNewSmsOtpCodeRequest"/>
+  </message>
+  <message name="createNewSmsOtpCodeResponse">
+    <part name="createNewSmsOtpCodeResponse" element="create:createNewSmsOtpCodeResponse"/>
+  </message>
+  <portType name="authenticationDobleFactor_ptt">
+    <operation name="createNewSmsOtpCode">
+      <input message="tns:createNewSmsOtpCodeRequest"/>
+      <output message="tns:createNewSmsOtpCodeResponse"/>
+    </operation>
+  </portType>
+</definitions>
