@@ -11,9 +11,6 @@
 
     <modules>
         <module>System</module>
-        <module>authenticationDobleFactor_ABC</module>
-        <module>authenticationDobleFactor_EBS</module>
-        <module>authenticationDobleFactor</module>
     </modules>
 
 </project>
