@@ -2,8 +2,8 @@
 <definitions targetNamespace="urn:authenticationDobleFactor" xmlns="http://schemas.xmlsoap.org/wsdl/"
              xmlns:tns="urn:authenticationDobleFactor" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
              xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-             xmlns:create="http://createnewsmsotpcode.claro.com.co/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:create="http://createnewsmsotpcode.claro.com.co/"
+             xmlns:validate="http://validatesmsotpcode.claro.com.co/"
              >
   <types>
     <xsd:schema targetNamespace="urn:authenticationDobleFactor/types" elementFormDefault="qualified"/>
@@ -11,17 +11,52 @@
       <xsd:import schemaLocation="../Schemas/createNewSmsOtpCode.xsd"
                   namespace="http://createnewsmsotpcode.claro.com.co/"/>
     </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://validatesmsotpcode.claro.com.co/"
+                  schemaLocation="../Schemas/validateSmsOtpCode.xsd"/>
+    </xsd:schema>
   </types>
-  <message name="createNewSmsOtpCodeRequest">
-    <part name="createNewSmsOtpCodeRequest" element="create:createNewSmsOtpCodeRequest"/>
+  <message name="createNewSmsOtpCodeRQ">
+    <part name="createNewSmsOtpCodeRQ" element="create:createNewSmsOtpCodeRQ"/>
   </message>
-  <message name="createNewSmsOtpCodeResponse">
-    <part name="createNewSmsOtpCodeResponse" element="create:createNewSmsOtpCodeResponse"/>
+  <message name="createNewSmsOtpCodeRS">
+    <part name="createNewSmsOtpCodeRS" element="create:createNewSmsOtpCodeRS"/>
   </message>
   <portType name="authenticationDobleFactor_ptt">
     <operation name="createNewSmsOtpCode">
-      <input message="tns:createNewSmsOtpCodeRequest"/>
-      <output message="tns:createNewSmsOtpCodeResponse"/>
+      <input message="tns:createNewSmsOtpCodeRQ"/>
+      <output message="tns:createNewSmsOtpCodeRS"/>
+    </operation>
+    <operation name="validateSmsOtpCode">
+      <input message="tns:validateSmsOtpCodeRQ"/>
+      <output message="tns:validateSmsOtpCodeRS"/>
     </operation>
   </portType>
+  <message name="validateSmsOtpCodeRQ">
+    <part name="validateSmsOtpCodeRQ" element="validate:validateSmsOtpCode_Request"/>
+  </message>
+  <message name="validateSmsOtpCodeRS">
+    <part name="validateSmsOtpCodeRS" element="validate:validateSmsOtpCode_Response"/>
+  </message>
+  <binding name="authenticationDobleFactor_pttSOAP11Binding" type="tns:authenticationDobleFactor_ptt">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createNewSmsOtpCode">
+      <soap:operation style="document" soapAction="urn:authenticationDobleFactor/createNewSmsOtpCode"/>
+      <input>
+        <soap:body use="literal" parts="createNewSmsOtpCodeRQ"/>
+      </input>
+      <output>
+        <soap:body use="literal" parts="createNewSmsOtpCodeRS"/>
+      </output>
+    </operation>
+    <operation name="validateSmsOtpCode">
+      <soap:operation style="document" soapAction="urn:authenticationDobleFactor/validateSmsOtpCode"/>
+      <input>
+        <soap:body use="literal" parts="validateSmsOtpCodeRQ"/>
+      </input>
+      <output>
+        <soap:body use="literal" parts="validateSmsOtpCodeRS"/>
+      </output>
+    </operation>
+  </binding>
 </definitions>

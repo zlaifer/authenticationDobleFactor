@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1252" ?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://validatesmsotpcode.claro.com.co"
-            targetNamespace="http://validatesmsotpcode.claro.com.co" elementFormDefault="qualified">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://validatesmsotpcode.claro.com.co/"
+            targetNamespace="http://validatesmsotpcode.claro.com.co/" elementFormDefault="qualified">
   <xsd:element name="validateSmsOtpCode_Request" type="validateSmsOtpCode_RQ">
     <xsd:annotation>
       <xsd:documentation>A sample element</xsd:documentation>
