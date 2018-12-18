@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://createnewsmsotpcode.claro.com.co/"
+            targetNamespace="http://createnewsmsotpcode.claro.com.co/" elementFormDefault="qualified">
+  <xsd:element name="createNewSmsOtpCodeRQ" type="createNewSmsOtpCodeRQ">
+    <xsd:annotation>
+      <xsd:documentation>A sample element</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="createNewSmsOtpCodeRS" type="createNewSmsOtpCodeRS"/>
+  <xsd:complexType name="createNewSmsOtpCodeRQ">
+    <xsd:sequence>
+      <xsd:element name="processContext">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="channelId" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="canal" type="xsd:string"/>
+      <xsd:element name="sharedKey" type="xsd:string"/>
+      <xsd:element name="purpose" type="xsd:string"/>
+      <xsd:element name="contextBind" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="createNewSmsOtpCodeRS">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:int" minOccurs="0"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

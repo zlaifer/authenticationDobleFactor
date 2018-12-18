@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<wsdl:definitions name="WSOutOfBandSmsService" targetNamespace="http://soap.easysol.net/detect/smsService" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.easysol.net/detect/smsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://soap.easysol.net/detect/smsService" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="activeClientService" type="tns:activeClientService"/>
+      <xs:element name="activeClientServiceResponse" type="tns:activeClientServiceResponse"/>
+      <xs:element name="alternativeSharedKey" type="tns:wsAlternativeSharedKey"/>
+      <xs:element name="createNewSmsOtpCode" type="tns:createNewSmsOtpCode"/>
+      <xs:element name="createNewSmsOtpCodeResponse" type="tns:createNewSmsOtpCodeResponse"/>
+      <xs:element name="deleteClientPhoneNumber" type="tns:deleteClientPhoneNumber"/>
+      <xs:element name="deleteClientPhoneNumberResponse" type="tns:deleteClientPhoneNumberResponse"/>
+      <xs:element name="insertClientPhoneNumber" type="tns:insertClientPhoneNumber"/>
+      <xs:element name="insertClientPhoneNumberResponse" type="tns:insertClientPhoneNumberResponse"/>
+      <xs:element name="retrieveClientPhoneNumber" type="tns:retrieveClientPhoneNumber"/>
+      <xs:element name="retrieveClientPhoneNumberResponse" type="tns:retrieveClientPhoneNumberResponse"/>
+      <xs:element name="retrieveIsClientServiceActive" type="tns:retrieveIsClientServiceActive"/>
+      <xs:element name="retrieveIsClientServiceActiveResponse" type="tns:retrieveIsClientServiceActiveResponse"/>
+      <xs:element name="retrieveNewOTP" type="tns:retrieveNewOTP"/>
+      <xs:element name="retrieveNewOTPResponse" type="tns:retrieveNewOTPResponse"/>
+      <xs:element name="validateSmsOtpCode" type="tns:validateSmsOtpCode"/>
+      <xs:element name="validateSmsOtpCodeResponse" type="tns:validateSmsOtpCodeResponse"/>
+      <xs:complexType name="retrieveNewOTP">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="processContext" type="tns:wsProcessContext"/>
+          <xs:element minOccurs="0" name="sharedKey" type="xs:string"/>
+          <xs:element minOccurs="0" name="contextBind" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsProcessContext">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="channelId" type="xs:string"/>
+          <xs:element minOccurs="0" name="externalId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retrieveNewOTPResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="WSRetrieveOtpResult" type="tns:wsRetrieveOtpResult"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsRetrieveOtpResult">
+        <xs:complexContent>
+          <xs:extension base="tns:wsDetectResult">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="otp" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="wsDetectResult">
+        <xs:complexContent>
+          <xs:extension base="tns:wsCommonResult">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="wsCommonResult">
+        <xs:complexContent>
+          <xs:extension base="tns:abstractResult">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="abstractResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="remainingFailedAttempts" type="xs:int"/>
+          <xs:element name="resultCode" type="xs:int"/>
+          <xs:element minOccurs="0" name="resultDescription" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retrieveClientPhoneNumber">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sharedKey" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retrieveClientPhoneNumberResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="retrieveClientPhoneNumberResult" type="tns:wsRetrieveClientPhoneNumberResult"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsRetrieveClientPhoneNumberResult">
+        <xs:complexContent>
+          <xs:extension base="tns:wsCommonResult">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="clientPrimarySmsPhoneNumber" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="activeClientService">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sharedKey" type="xs:string"/>
+          <xs:element name="setServiceAsActive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="activeClientServiceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="retrieveIsClientServiceActiveResult" type="tns:wsRetrieveIsClientServiceActiveResult"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsRetrieveIsClientServiceActiveResult">
+        <xs:complexContent>
+          <xs:extension base="tns:wsCommonResult">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="sharedKey" type="xs:string"/>
+              <xs:element minOccurs="0" name="lastActivationServiceChangeDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="clientPhoneNumber" type="xs:string"/>
+              <xs:element minOccurs="0" name="isServiceActive" type="xs:boolean"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="retrieveIsClientServiceActive">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sharedKey" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retrieveIsClientServiceActiveResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="retrieveIsClientServiceActiveResult" type="tns:wsRetrieveIsClientServiceActiveResult"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteClientPhoneNumber">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sharedKey" type="xs:string"/>
+          <xs:element minOccurs="0" name="phoneNumber" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteClientPhoneNumberResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="deleteClientPhoneNumberResult" type="tns:wsDeleteClientPhoneNumberResult"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsDeleteClientPhoneNumberResult">
+        <xs:complexContent>
+          <xs:extension base="tns:wsCommonResult">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="insertClientPhoneNumber">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sharedKey" type="xs:string"/>
+          <xs:element minOccurs="0" name="phoneNumber" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="insertClientPhoneNumberResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="insertClientPhoneNumberResult" type="tns:wsInsertClientPhoneNumberResult"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsInsertClientPhoneNumberResult">
+        <xs:complexContent>
+          <xs:extension base="tns:wsCommonResult">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="validateSmsOtpCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="processContext" type="tns:wsAlternativeProcessContext"/>
+          <xs:element minOccurs="0" name="sharedKey" type="xs:string"/>
+          <xs:element minOccurs="0" name="otpCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="contextBind" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsAlternativeProcessContext">
+        <xs:complexContent>
+          <xs:extension base="tns:wsProcessContext">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="alternativeSharedKey" type="tns:wsAlternativeSharedKey"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="wsAlternativeSharedKey">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validateSmsOtpCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="validateSmsOtpCodeResult" type="tns:wsValidateSmsOtpCodeResult"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsValidateSmsOtpCodeResult">
+        <xs:complexContent>
+          <xs:extension base="tns:wsCommonValidationResult">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="wsCommonValidationResult">
+        <xs:complexContent>
+          <xs:extension base="tns:abstractResult">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="createNewSmsOtpCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="processContext" type="tns:wsProcessContext"/>
+          <xs:element minOccurs="0" name="sharedKey" type="xs:string"/>
+          <xs:element minOccurs="0" name="purpose" type="xs:string"/>
+          <xs:element minOccurs="0" name="contextBind" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createNewSmsOtpCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createNewSmsOtpCodeResult" type="tns:wsCreateNewSmsOtpCodeResult"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsCreateNewSmsOtpCodeResult">
+        <xs:complexContent>
+          <xs:extension base="tns:wsCommonResult">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="activeClientServiceResponse">
+    <wsdl:part element="tns:activeClientServiceResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertClientPhoneNumberResponse">
+    <wsdl:part element="tns:insertClientPhoneNumberResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validateSmsOtpCodeResponse">
+    <wsdl:part element="tns:validateSmsOtpCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveNewOTP">
+    <wsdl:part element="tns:retrieveNewOTP" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveNewOTPResponse">
+    <wsdl:part element="tns:retrieveNewOTPResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteClientPhoneNumber">
+    <wsdl:part element="tns:deleteClientPhoneNumber" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validateSmsOtpCode">
+    <wsdl:part element="tns:validateSmsOtpCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertClientPhoneNumber">
+    <wsdl:part element="tns:insertClientPhoneNumber" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveIsClientServiceActiveResponse">
+    <wsdl:part element="tns:retrieveIsClientServiceActiveResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteClientPhoneNumberResponse">
+    <wsdl:part element="tns:deleteClientPhoneNumberResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createNewSmsOtpCode">
+    <wsdl:part element="tns:createNewSmsOtpCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="activeClientService">
+    <wsdl:part element="tns:activeClientService" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveClientPhoneNumberResponse">
+    <wsdl:part element="tns:retrieveClientPhoneNumberResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createNewSmsOtpCodeResponse">
+    <wsdl:part element="tns:createNewSmsOtpCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveIsClientServiceActive">
+    <wsdl:part element="tns:retrieveIsClientServiceActive" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveClientPhoneNumber">
+    <wsdl:part element="tns:retrieveClientPhoneNumber" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WSOutOfBandSmsService">
+    <wsdl:operation name="retrieveNewOTP">
+      <wsdl:input message="tns:retrieveNewOTP" name="retrieveNewOTP"></wsdl:input>
+      <wsdl:output message="tns:retrieveNewOTPResponse" name="retrieveNewOTPResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveClientPhoneNumber">
+      <wsdl:input message="tns:retrieveClientPhoneNumber" name="retrieveClientPhoneNumber"></wsdl:input>
+      <wsdl:output message="tns:retrieveClientPhoneNumberResponse" name="retrieveClientPhoneNumberResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activeClientService">
+      <wsdl:input message="tns:activeClientService" name="activeClientService"></wsdl:input>
+      <wsdl:output message="tns:activeClientServiceResponse" name="activeClientServiceResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveIsClientServiceActive">
+      <wsdl:input message="tns:retrieveIsClientServiceActive" name="retrieveIsClientServiceActive"></wsdl:input>
+      <wsdl:output message="tns:retrieveIsClientServiceActiveResponse" name="retrieveIsClientServiceActiveResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientPhoneNumber">
+      <wsdl:input message="tns:deleteClientPhoneNumber" name="deleteClientPhoneNumber"></wsdl:input>
+      <wsdl:output message="tns:deleteClientPhoneNumberResponse" name="deleteClientPhoneNumberResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertClientPhoneNumber">
+      <wsdl:input message="tns:insertClientPhoneNumber" name="insertClientPhoneNumber"></wsdl:input>
+      <wsdl:output message="tns:insertClientPhoneNumberResponse" name="insertClientPhoneNumberResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateSmsOtpCode">
+      <wsdl:input message="tns:validateSmsOtpCode" name="validateSmsOtpCode"></wsdl:input>
+      <wsdl:output message="tns:validateSmsOtpCodeResponse" name="validateSmsOtpCodeResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createNewSmsOtpCode">
+      <wsdl:input message="tns:createNewSmsOtpCode" name="createNewSmsOtpCode"></wsdl:input>
+      <wsdl:output message="tns:createNewSmsOtpCodeResponse" name="createNewSmsOtpCodeResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSOutOfBandSmsServiceSoapBinding" type="tns:WSOutOfBandSmsService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="retrieveNewOTP">
+      <soap:operation soapAction="urn:retrieveNewOTP" style="document"/>
+      <wsdl:input name="retrieveNewOTP">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="retrieveNewOTPResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveClientPhoneNumber">
+      <soap:operation soapAction="urn:retrieveClientPhoneNumber" style="document"/>
+      <wsdl:input name="retrieveClientPhoneNumber">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="retrieveClientPhoneNumberResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activeClientService">
+      <soap:operation soapAction="urn:activeClientService" style="document"/>
+      <wsdl:input name="activeClientService">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="activeClientServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveIsClientServiceActive">
+      <soap:operation soapAction="urn:retrieveIsClientServiceActive" style="document"/>
+      <wsdl:input name="retrieveIsClientServiceActive">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="retrieveIsClientServiceActiveResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClientPhoneNumber">
+      <soap:operation soapAction="urn:deleteClientPhoneNumber" style="document"/>
+      <wsdl:input name="deleteClientPhoneNumber">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteClientPhoneNumberResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertClientPhoneNumber">
+      <soap:operation soapAction="urn:insertClientPhoneNumber" style="document"/>
+      <wsdl:input name="insertClientPhoneNumber">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="insertClientPhoneNumberResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createNewSmsOtpCode">
+      <soap:operation soapAction="urn:createNewSmsOtpCode" style="document"/>
+      <wsdl:input name="createNewSmsOtpCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createNewSmsOtpCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateSmsOtpCode">
+      <soap:operation soapAction="urn:validateSmsOtpCode" style="document"/>
+      <wsdl:input name="validateSmsOtpCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="validateSmsOtpCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSOutOfBandSmsService">
+    <wsdl:port binding="tns:WSOutOfBandSmsServiceSoapBinding" name="WSOutOfBandSmsServiceImplPort">
+      <soap:address location="http://10.119.87.112:82/detect/services/WSOutOfBandSmsService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

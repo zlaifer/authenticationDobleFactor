@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>authenticationDobleFactor</groupId>
-    <artifactId>authenticationDobleFactor_EBS</artifactId>
+    <artifactId>authenticationDobleFactor_ESB</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>sbar</packaging>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="authenticationDobleFactor_ABC/Resources/WSDLs/VALIDATE_SMS_OTP_CODE_PS"/>
+            <con:binding>
+                <con:name>VALIDATE_SMS_OTP_CODE_bind</con:name>
+                <con:namespace>http://xmlns.oracle.com/authenticationDobleFactor/authenticationDobleFactor_ABC/VALIDATE_SMS_OTP_CODE_PS</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-N3f57ff94.N16e3bee2.0.167c1f63366.N7dd6">
+            <con:stage id="_StageId-N3f57ff94.N16e3bee2.0.167c1f63366.N7cab" name="stg_InputValidate">
+                <con:context>
+                    <con1:userNsDecl prefix="val" namespace="http://validatesmsotpcode.claro.com.co/"/>
+                </con:context>
+                <con:actions>
+                    <con2:validate>
+                        <con1:id>_ActionId-N3f57ff94.N16e3bee2.0.167c1f63366.N7be2</con1:id>
+                        <con2:schema ref="authenticationDobleFactor_ABC/Resources/Schemas/validateSmsOtpCode"/>
+                        <con2:schemaElement xmlns:val="http://validatesmsotpcode.claro.com.co/">val:validateSmsOtpCode_Request</con2:schemaElement>
+                        <con2:varName>body</con2:varName>
+                        <con2:location>
+                            <con1:xpathText>./val:validateSmsOtpCode_Request</con1:xpathText>
+                        </con2:location>
+                    </con2:validate>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N3f57ff94.N16e3bee2.0.167c1f63366.N7d70" name="stg_InputTransform">
+                <con:context>
+                    <con1:userNsDecl prefix="val" namespace="http://validatesmsotpcode.claro.com.co/"/>
+                </con:context>
+                <con:actions>
+                    <con2:replace varName="body" contents-only="true">
+                        <con1:id>_ActionId-N3f57ff94.N16e3bee2.0.167c1f63366.N7bdf</con1:id>
+                        <con2:location>
+                            <con1:xpathText>.</con1:xpathText>
+                        </con2:location>
+                        <con2:expr>
+                            <con1:xqueryTransform>
+                                <con1:resource ref="authenticationDobleFactor_ABC/Resources/XQueries/xqy_IN_ValidateSmsOtpCode_to_WSOutOfBandSmsService"/>
+                                <con1:param name="Input">
+                                    <con1:path>$body/val:validateSmsOtpCode_Request</con1:path>
+                                </con1:param>
+                            </con1:xqueryTransform>
+                        </con2:expr>
+                    </con2:replace>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-N3f57ff94.N16e3bee2.0.167c1f63366.N7dd5">
+            <con:stage id="_StageId-N3f57ff94.N16e3bee2.0.167c1f63366.N7c48" name="stg_OutputTransform">
+                <con:context/>
+                <con:actions>
+                    <con2:replace varName="body" contents-only="true">
+                        <con1:id>_ActionId-N3f57ff94.N16e3bee2.0.167c1f63366.N7bd8</con1:id>
+                        <con2:location>
+                            <con1:xpathText>.</con1:xpathText>
+                        </con2:location>
+                        <con2:expr>
+                            <con1:xqueryTransform>
+                                <con1:resource ref="authenticationDobleFactor_ABC/Resources/XQueries/xqy_OUT_WSOutOfBandSmsService_to_ValidateSmsOtpCode"/>
+                                <con1:param name="Output">
+                                    <con1:path>$body/*</con1:path>
+                                </con1:param>
+                            </con1:xqueryTransform>
+                        </con2:expr>
+                    </con2:replace>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N3f57ff94.N16e3bee2.0.167c1f63366.N7be5" name="stg_OutputValidate">
+                <con:context>
+                    <con1:userNsDecl prefix="val" namespace="http://validatesmsotpcode.claro.com.co/"/>
+                </con:context>
+                <con:actions>
+                    <con2:validate>
+                        <con1:id>_ActionId-N3f57ff94.N16e3bee2.0.167c1f63366.N7bdc</con1:id>
+                        <con2:schema ref="authenticationDobleFactor_ABC/Resources/Schemas/validateSmsOtpCode"/>
+                        <con2:schemaElement xmlns:val="http://validatesmsotpcode.claro.com.co/">val:validateSmsOtpCode_Response</con2:schemaElement>
+                        <con2:varName>body</con2:varName>
+                        <con2:location>
+                            <con1:xpathText>./val:validateSmsOtpCode_Response</con1:xpathText>
+                        </con2:location>
+                    </con2:validate>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="PPN_ValidateSmsOtpCode">
+                <con:request>request-N3f57ff94.N16e3bee2.0.167c1f63366.N7dd6</con:request>
+                <con:response>response-N3f57ff94.N16e3bee2.0.167c1f63366.N7dd5</con:response>
+            </con:pipeline-node>
+            <con:route-node name="RN_ValidateSmsOtpCode" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                <con:context/>
+                <con:actions>
+                    <con1:route>
+                        <con2:id>_ActionId-N3f57ff94.N16e3bee2.0.167c1f63366.N7fcc</con2:id>
+                        <con1:service ref="authenticationDobleFactor_ABC/BusinessServices/VALIDATE_SMS_OTP_CODE_BS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>validateSmsOtpCode</con1:operation>
+                        <con1:outboundTransform/>
+                        <con1:responseTransform/>
+                    </con1:route>
+                </con:actions>
+            </con:route-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

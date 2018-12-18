@@ -28,7 +28,7 @@
    </list>
    <list n="listOfChildren">
       <hash><url n="URL" path="authenticationDobleFactor_ABC/authenticationDobleFactor_ABC.jpr"/></hash>
-      <hash><url n="URL" path="authenticationDobleFactor_EBS/authenticationDobleFactor_EBS.jpr"/></hash>
+      <hash><url n="URL" path="authenticationDobleFactor_ESB/authenticationDobleFactor_ESB.jpr"/></hash>
       <hash><url n="URL" path="authenticationDobleFactor/authenticationDobleFactor.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
@@ -48,6 +48,6 @@
       </hash>
    </hash>
    <hash n="oracle.sb.tooling.ide.core.internal.application.SbApplication">
-      <value n="configContextSessionName" v="OSB-IDE_build_1545074656820"/>
+      <value n="configContextSessionName" v="OSB-IDE_build_1545170555889"/>
    </hash>
 </jws:workspace>
