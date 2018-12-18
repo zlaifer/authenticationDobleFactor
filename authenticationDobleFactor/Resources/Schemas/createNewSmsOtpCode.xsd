@@ -16,6 +16,7 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="canal" type="xsd:string"/>
       <xsd:element name="sharedKey" type="xsd:string"/>
       <xsd:element name="purpose" type="xsd:string"/>
       <xsd:element name="contextBind" type="xsd:string"/>
