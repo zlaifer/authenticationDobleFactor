@@ -23,7 +23,7 @@
         <tran:provider-id>http</tran:provider-id>
         <tran:inbound>false</tran:inbound>
         <tran:URI>
-            <env:value>http://10.119.87.112:82/detect/services/WSOutOfBandSmsService</env:value>
+            <env:value>http://10.0.1.199:81/detect/services/WSOutOfBandSmsService</env:value>
         </tran:URI>
         <tran:outbound-properties>
             <tran:load-balancing-algorithm>round-robin</tran:load-balancing-algorithm>

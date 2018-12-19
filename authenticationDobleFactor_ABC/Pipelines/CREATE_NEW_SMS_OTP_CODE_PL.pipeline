@@ -4,7 +4,7 @@
         <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
             <con:wsdl ref="authenticationDobleFactor_ABC/Resources/WSDLs/CREATE_NEW_SMS_OTP_CODE_PS"/>
             <con:binding>
-                <con:name>CREATE_NEW_SMS_OTP_CODE_bind</con:name>
+                <con:name>CREATE_NEW_SMS_OTP_CODE_PS_bind</con:name>
                 <con:namespace>http://xmlns.oracle.com/authenticationDobleFactor/authenticationDobleFactor_ABC/CREATE_NEW_SMS_OTP_CODE_PS</con:namespace>
             </con:binding>
         </con:binding>
@@ -101,7 +101,7 @@
                 <con:actions>
                     <con1:route>
                         <con2:id>_ActionId-N3f57ff94.N16e3bee2.0.167c1f63366.N7fcb</con2:id>
-                        <con1:service ref="authenticationDobleFactor_ABC/BusinessServices/CREATE_NEW_SMS_OTP_CODE_BS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:service ref="authenticationDobleFactor_ABC/BusinessServices/WSOutOfBandSmsService_BS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
                         <con1:operation>createNewSmsOtpCode</con1:operation>
                         <con1:outboundTransform/>
                         <con1:responseTransform/>

@@ -31,17 +31,6 @@
                     </con1:validate>
                 </con:actions>
             </con:stage>
-            <con:stage id="_StageId-N3f5776ff.b49ac7a.0.167c6bebd38.N7e30" name="stg_AssignVariables">
-                <con:context/>
-                <con:actions>
-                    <con1:assign varName="URLComplete">
-                        <con2:id>_ActionId-N3f5776ff.b49ac7a.0.167c6bebd38.N7e2f</con2:id>
-                        <con1:expr>
-                            <con2:xqueryText>'https://secureaccess2.bsecure.co:8443/oauth2/token'</con2:xqueryText>
-                        </con1:expr>
-                    </con1:assign>
-                </con:actions>
-            </con:stage>
             <con:stage id="_StageId-N3f5776ff.b49ac7a.0.167c6bebd38.N7ffd" name="stg_InputTransform">
                 <con:context/>
                 <con:actions/>
@@ -62,12 +51,8 @@
                         <con1:requestTransform>
                             <con1:routing-options>
                                 <con2:id>_ActionId-N3f5776ff.b49ac7a.0.167c6bebd38.N7e95</con2:id>
-                                <con1:uriExpr>
-                                    <con2:xqueryText>$URLComplete</con2:xqueryText>
-                                </con1:uriExpr>
                                 <con1:restOptions>
                                     <con1:verb>POST</con1:verb>
-                                    <con1:accept>application/xml</con1:accept>
                                     <con1:query-param>
                                         <con1:name>grant_type</con1:name>
                                         <con1:value>

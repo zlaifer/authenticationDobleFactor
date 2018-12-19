@@ -7,7 +7,7 @@
         <ser:binding type="SOAP" xsi:type="con:SoapBindingType" isSoap12="false" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
             <con:wsdl ref="authenticationDobleFactor_ABC/Resources/WSDLs/CREATE_NEW_SMS_OTP_CODE_PS"/>
             <con:binding>
-                <con:name>CREATE_NEW_SMS_OTP_CODE_bind</con:name>
+                <con:name>CREATE_NEW_SMS_OTP_CODE_PS_bind</con:name>
                 <con:namespace>http://xmlns.oracle.com/authenticationDobleFactor/authenticationDobleFactor_ABC/CREATE_NEW_SMS_OTP_CODE_PS</con:namespace>
             </con:binding>
             <con:selector type="SOAP body"/>
@@ -16,7 +16,7 @@
         <ser:ws-policy>
             <ser:binding-mode>no-policies</ser:binding-mode>
         </ser:ws-policy>
-        <ser:invoke ref="authenticationDobleFactor_ABC/Pipelines/CREATE_NEW_SMS_OTP_CODE_PL" xsi:type="con:PipelineRef" xmlns:con="http://www.bea.com/wli/sb/pipeline/config"/>
+        <ser:invoke ref="authenticationDobleFactor_ABC/Pipelines/CREATE_NEW_SMS_OTP_CODE_PL" xsi:type="con1:PipelineRef" xmlns:con1="http://www.bea.com/wli/sb/pipeline/config"/>
         <ser:xqConfiguration>
             <ser:snippetVersion>1.0</ser:snippetVersion>
         </ser:xqConfiguration>
