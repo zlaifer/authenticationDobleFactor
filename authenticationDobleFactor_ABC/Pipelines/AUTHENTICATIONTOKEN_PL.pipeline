@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
     <con:coreEntry>
         <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
             <con:wsdl ref="authenticationDobleFactor_ABC/Resources/WSDLs/AUTHENTICATIONTOKEN_PS"/>
@@ -15,12 +15,83 @@
     <con:router>
         <con:pipeline type="request" name="request-N3f5776ff.b49ac7a.0.167c6bebd38.N7fff">
             <con:stage id="_StageId-N3f5776ff.b49ac7a.0.167c6bebd38.N7f68" name="stg_InputValidate">
+                <con:context>
+                    <con2:userNsDecl prefix="aut" namespace="http://authenticationtoken.claro.com.co/"/>
+                </con:context>
+                <con:disabled>true</con:disabled>
+                <con:actions>
+                    <con1:validate>
+                        <con2:id>_ActionId-N3f5776ff.b49ac7a.0.167c6bebd38.N7ed1</con2:id>
+                        <con1:schema ref="authenticationDobleFactor_ABC/Resources/Schemas/authenticationToken"/>
+                        <con1:schemaElement xmlns:aut="http://authenticationtoken.claro.com.co/">aut:authenticationTokenRequest</con1:schemaElement>
+                        <con1:varName>body</con1:varName>
+                        <con1:location>
+                            <con2:xpathText>./aut:authenticationTokenRequest</con2:xpathText>
+                        </con1:location>
+                    </con1:validate>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N3f5776ff.b49ac7a.0.167c6bebd38.N7e30" name="stg_AssignVariables">
                 <con:context/>
-                <con:actions/>
+                <con:actions>
+                    <con1:assign varName="URLComplete">
+                        <con2:id>_ActionId-N3f5776ff.b49ac7a.0.167c6bebd38.N7e2f</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText>'https://secureaccess2.bsecure.co:8443/oauth2/token'</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                </con:actions>
             </con:stage>
             <con:stage id="_StageId-N3f5776ff.b49ac7a.0.167c6bebd38.N7ffd" name="stg_InputTransform">
                 <con:context/>
                 <con:actions/>
+            </con:stage>
+            <con:stage id="_StageId-N3f5776ff.b49ac7a.0.167c6bebd38.N7e9a" name="SC_AuthenticationToken">
+                <con:context/>
+                <con:actions>
+                    <con1:wsCallout>
+                        <con2:id>_ActionId-N3f5776ff.b49ac7a.0.167c6bebd38.N7e99</con2:id>
+                        <con1:service ref="authenticationDobleFactor_ABC/BusinessServices/AUTHENTICATION_TOKEN_BS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>TOKEN</con1:operation>
+                        <con1:request>
+                            <con1:payload wrapped="true">body</con1:payload>
+                        </con1:request>
+                        <con1:response>
+                            <con1:payload wrapped="true">body</con1:payload>
+                        </con1:response>
+                        <con1:requestTransform>
+                            <con1:routing-options>
+                                <con2:id>_ActionId-N3f5776ff.b49ac7a.0.167c6bebd38.N7e95</con2:id>
+                                <con1:uriExpr>
+                                    <con2:xqueryText>$URLComplete</con2:xqueryText>
+                                </con1:uriExpr>
+                                <con1:restOptions>
+                                    <con1:verb>POST</con1:verb>
+                                    <con1:accept>application/xml</con1:accept>
+                                    <con1:query-param>
+                                        <con1:name>grant_type</con1:name>
+                                        <con1:value>
+                                            <con2:xqueryText>'client_credentials'</con2:xqueryText>
+                                        </con1:value>
+                                    </con1:query-param>
+                                    <con1:query-param>
+                                        <con1:name>client_secret</con1:name>
+                                        <con1:value>
+                                            <con2:xqueryText>'9597882e06094447b4dcc70d48198266'</con2:xqueryText>
+                                        </con1:value>
+                                    </con1:query-param>
+                                    <con1:query-param>
+                                        <con1:name>client_id</con1:name>
+                                        <con1:value>
+                                            <con2:xqueryText>'7e7e7efa9a1b4319909447a435517440'</con2:xqueryText>
+                                        </con1:value>
+                                    </con1:query-param>
+                                </con1:restOptions>
+                            </con1:routing-options>
+                        </con1:requestTransform>
+                        <con1:responseTransform/>
+                    </con1:wsCallout>
+                </con:actions>
             </con:stage>
         </con:pipeline>
         <con:pipeline type="response" name="response-N3f5776ff.b49ac7a.0.167c6bebd38.N7ffe">
@@ -29,8 +100,21 @@
                 <con:actions/>
             </con:stage>
             <con:stage id="_StageId-N3f5776ff.b49ac7a.0.167c6bebd38.N7ffc" name="stg_OutputValidate">
-                <con:context/>
-                <con:actions/>
+                <con:context>
+                    <con2:userNsDecl prefix="aut" namespace="http://authenticationtoken.claro.com.co/"/>
+                </con:context>
+                <con:actions>
+                    <con1:validate>
+                        <con2:id>_ActionId-N3f5776ff.b49ac7a.0.167c6bebd38.N7ece</con2:id>
+                        <con2:disabled>true</con2:disabled>
+                        <con1:schema ref="authenticationDobleFactor_ABC/Resources/Schemas/authenticationToken"/>
+                        <con1:schemaElement xmlns:aut="http://authenticationtoken.claro.com.co/">aut:authenticationTokenResponse</con1:schemaElement>
+                        <con1:varName>body</con1:varName>
+                        <con1:location>
+                            <con2:xpathText>./aut:authenticationTokenResponse</con2:xpathText>
+                        </con1:location>
+                    </con1:validate>
+                </con:actions>
             </con:stage>
         </con:pipeline>
         <con:flow>
@@ -38,18 +122,6 @@
                 <con:request>request-N3f5776ff.b49ac7a.0.167c6bebd38.N7fff</con:request>
                 <con:response>response-N3f5776ff.b49ac7a.0.167c6bebd38.N7ffe</con:response>
             </con:pipeline-node>
-            <con:route-node name="RN_AuthenticationToken" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
-                <con:context/>
-                <con:actions>
-                    <con1:route>
-                        <con2:id>_ActionId-N3f5776ff.b49ac7a.0.167c6bebd38.N8000</con2:id>
-                        <con1:service ref="authenticationDobleFactor_ABC/BusinessServices/AUTHENTICATION_TOKEN_BS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
-                        <con1:operation>TOKEN</con1:operation>
-                        <con1:outboundTransform/>
-                        <con1:responseTransform/>
-                    </con1:route>
-                </con:actions>
-            </con:route-node>
         </con:flow>
     </con:router>
 </con:pipelineEntry>

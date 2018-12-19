@@ -5,18 +5,13 @@
     <xsd:annotation>
       <xsd:documentation>A sample element</xsd:documentation>
     </xsd:annotation>
-    <xsd:complexType>
-      <xsd:sequence>
-        <xsd:element name="grant_type" type="xsd:string"/>
-        <xsd:element name="client_id" type="xsd:string"/>
-        <xsd:element name="client_secret" type="xsd:string"/>
-      </xsd:sequence>
-    </xsd:complexType>
   </xsd:element>
   <xsd:element name="authenticationTokenResponse">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element name="status" type="xsd:int"/>
+        <xsd:element name="token_type" type="xsd:string"/>
+        <xsd:element name="access_token" type="xsd:string"/>
+        <xsd:element name="expires_in" type="xsd:int"/>
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
