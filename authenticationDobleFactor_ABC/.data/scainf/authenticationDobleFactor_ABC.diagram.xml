@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dgm:gDiagram xmlns:dgm="http://xmlns.oracle.com/sca/soadgm">
-    <dgm:gService name="CREATE_NEW_SMS_OTP_CODE_PS">
-        <dgm:body borderWidth="2" arcRad="20" X="21" Y="216" width="137" height="54">
+    <dgm:gService name="AUTHENTICATIONTOKEN_PS">
+        <dgm:body borderWidth="2" arcRad="20" X="21" Y="238" width="137" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="11" Y="209" width="156" height="68">
+        <dgm:shadow arcRad="20" X="11" Y="231" width="156" height="68">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:outputPort name="AUTHENTICATIONTOKEN_PS" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_local_20x20.png" X="7" Y="4" width="20" height="20"/>
+        <dgm:operations/>
+    </dgm:gService>
+    <dgm:gService name="CREATE_NEW_SMS_OTP_CODE_PS">
+        <dgm:body borderWidth="2" arcRad="20" X="21" Y="145" width="137" height="54">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="11" Y="138" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:outputPort name="CREATE_NEW_SMS_OTP_CODE_PS" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -13,23 +25,35 @@
         <dgm:operations/>
     </dgm:gService>
     <dgm:gService name="VALIDATE_SMS_OTP_CODE_PS">
-        <dgm:body borderWidth="2" arcRad="20" X="21" Y="112" width="137" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="21" Y="41" width="137" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="11" Y="105" width="156" height="68">
+        <dgm:shadow arcRad="20" X="11" Y="34" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:outputPort name="VALIDATE_SMS_OTP_CODE_PS" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_local_20x20.png" X="7" Y="4" width="20" height="20"/>
         <dgm:operations/>
     </dgm:gService>
-    <dgm:gReference name="CREATE_NEW_SMS_OTP_CODE_BS">
-        <dgm:body borderWidth="2" arcRad="20" X="736" Y="216" width="136" height="54">
+    <dgm:gReference name="AUTHENTICATION_TOKEN_BS">
+        <dgm:body borderWidth="2" arcRad="20" X="552" Y="238" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="726" Y="209" width="156" height="68">
+        <dgm:shadow arcRad="20" X="542" Y="231" width="156" height="68">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="AUTHENTICATION_TOKEN_BS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="14" Y="4" width="20" height="20"/>
+        <dgm:operations/>
+    </dgm:gReference>
+    <dgm:gReference name="CREATE_NEW_SMS_OTP_CODE_BS">
+        <dgm:body borderWidth="2" arcRad="20" X="552" Y="145" width="136" height="54">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="542" Y="138" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="CREATE_NEW_SMS_OTP_CODE_BS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -37,36 +61,37 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gReference name="VALIDATE_SMS_OTP_CODE_BS">
-        <dgm:body borderWidth="2" arcRad="20" X="736" Y="112" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="552" Y="41" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="726" Y="105" width="156" height="68">
+        <dgm:shadow arcRad="20" X="542" Y="34" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="VALIDATE_SMS_OTP_CODE_BS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_http_20x20.png" X="14" Y="4" width="20" height="20"/>
         <dgm:operations/>
     </dgm:gReference>
-    <dgm:gReference name="AUTHENTICATION_TOKEN_BS">
-        <dgm:body borderWidth="2" arcRad="20" X="736" Y="26" width="136" height="54">
-            <dgm:borderColor r="153" g="153" b="153"/>
-            <dgm:bgColor r="255" g="255" b="255"/>
-        </dgm:body>
-        <dgm:shadow arcRad="20" X="726" Y="19" width="156" height="68">
-            <dgm:bgColor r="196" g="228" b="240"/>
-        </dgm:shadow>
-        <dgm:inputPort name="AUTHENTICATION_TOKEN_BS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
-        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="14" Y="4" width="20" height="20"/>
-        <dgm:operations/>
-    </dgm:gReference>
-    <dgm:gComponent name="CREATE_NEW_SMS_OTP_CODE_PL">
-        <dgm:body borderWidth="2" arcRad="20" X="450" Y="201" width="130" height="61">
+    <dgm:gComponent name="AUTHENTICATIONTOKEN_PL">
+        <dgm:body borderWidth="2" arcRad="20" X="290" Y="223" width="130" height="61">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="440" Y="194" width="150" height="77">
+        <dgm:shadow arcRad="20" X="280" Y="216" width="150" height="77">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="businessservice.-495166717.AUTHENTICATION_TOKEN_BS" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gComponent name="CREATE_NEW_SMS_OTP_CODE_PL">
+        <dgm:body borderWidth="2" arcRad="20" X="290" Y="130" width="130" height="61">
+            <dgm:borderColor r="109" g="136" b="65"/>
+            <dgm:lightBgColor r="201" g="224" b="155"/>
+            <dgm:darkBgColor r="157" g="195" b="93"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="280" Y="123" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -74,35 +99,45 @@
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
     <dgm:gComponent name="VALIDATE_SMS_OTP_CODE_PL">
-        <dgm:body borderWidth="2" arcRad="20" X="450" Y="97" width="130" height="61">
+        <dgm:body borderWidth="2" arcRad="20" X="290" Y="26" width="130" height="61">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="440" Y="90" width="150" height="77">
+        <dgm:shadow arcRad="20" X="280" Y="19" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:outputPort name="businessservice.-495166717.VALIDATE_SMS_OTP_CODE_BS" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
+    <dgm:gWireLink source="AUTHENTICATIONTOKEN_PS" target="AUTHENTICATIONTOKEN_PL/__service__" width="2">
+        <dgm:gSegment X1="168" Y1="248" X2="280" Y2="248"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
     <dgm:gWireLink source="CREATE_NEW_SMS_OTP_CODE_PS" target="CREATE_NEW_SMS_OTP_CODE_PL/__service__" width="2">
-        <dgm:gSegment X1="168" Y1="226" X2="440" Y2="226"/>
+        <dgm:gSegment X1="168" Y1="155" X2="280" Y2="155"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="VALIDATE_SMS_OTP_CODE_PS" target="VALIDATE_SMS_OTP_CODE_PL/__service__" width="2">
-        <dgm:gSegment X1="168" Y1="122" X2="440" Y2="122"/>
+        <dgm:gSegment X1="168" Y1="51" X2="280" Y2="51"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="AUTHENTICATIONTOKEN_PL/businessservice.-495166717.AUTHENTICATION_TOKEN_BS" target="AUTHENTICATION_TOKEN_BS" width="2">
+        <dgm:gSegment X1="430" Y1="248" X2="542" Y2="248"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="CREATE_NEW_SMS_OTP_CODE_PL/businessservice.-495166717.CREATE_NEW_SMS_OTP_CODE_BS" target="CREATE_NEW_SMS_OTP_CODE_BS" width="2">
-        <dgm:gSegment X1="590" Y1="226" X2="726" Y2="226"/>
+        <dgm:gSegment X1="430" Y1="155" X2="542" Y2="155"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="VALIDATE_SMS_OTP_CODE_PL/businessservice.-495166717.VALIDATE_SMS_OTP_CODE_BS" target="VALIDATE_SMS_OTP_CODE_BS" width="2">
-        <dgm:gSegment X1="590" Y1="122" X2="726" Y2="122"/>
+        <dgm:gSegment X1="430" Y1="51" X2="542" Y2="51"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>

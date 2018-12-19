@@ -102,7 +102,6 @@
    </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
-         <string v="SOA"/>
          <string v="ServiceBusTechnology"/>
          <string v="WSDL"/>
          <string v="WSPolicy"/>
@@ -132,7 +131,6 @@
                            <value n="type" v="1"/>
                         </hash>
                      </list>
-                     <value n="displayName" v="SOA Files"/>
                      <hash n="filters">
                         <list n="rules">
                            <hash>
@@ -259,9 +257,6 @@
             <value n="name" v="Default"/>
             <hash n="oracle.jdevimpl.runner.debug.DebugConfiguration">
                <value n="promptForRemoteDebugging" v="false"/>
-               <value n="remoteParameter:SOA:hostname" v="hgalindo.mshome.net"/>
-               <value n="remoteParameter:SOA:port" v="5004"/>
-               <value n="remoteProtocol" v="SOA"/>
             </hash>
             <value n="remoteDebuggingProfiling" v="true"/>
             <url n="targetURL" path="servicebus.sboverview"/>
