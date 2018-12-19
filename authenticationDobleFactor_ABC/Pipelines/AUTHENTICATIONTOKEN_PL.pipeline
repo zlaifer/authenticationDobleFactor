@@ -60,15 +60,15 @@
                                         </con1:value>
                                     </con1:query-param>
                                     <con1:query-param>
-                                        <con1:name>client_secret</con1:name>
-                                        <con1:value>
-                                            <con2:xqueryText>'9597882e06094447b4dcc70d48198266'</con2:xqueryText>
-                                        </con1:value>
-                                    </con1:query-param>
-                                    <con1:query-param>
                                         <con1:name>client_id</con1:name>
                                         <con1:value>
                                             <con2:xqueryText>'7e7e7efa9a1b4319909447a435517440'</con2:xqueryText>
+                                        </con1:value>
+                                    </con1:query-param>
+                                    <con1:query-param>
+                                        <con1:name>client_secret</con1:name>
+                                        <con1:value>
+                                            <con2:xqueryText>'9597882e06094447b4dcc70d48198266'</con2:xqueryText>
                                         </con1:value>
                                     </con1:query-param>
                                 </con1:restOptions>
