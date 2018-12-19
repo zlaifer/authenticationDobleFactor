@@ -12,6 +12,7 @@
     <modules>
         <module>System</module>
         <module>authenticationDobleFactor_ESB</module>
+        <module>authenticationDobleFactor_ABC</module>
     </modules>
 
 </project>
