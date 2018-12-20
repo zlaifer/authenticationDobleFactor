@@ -11,13 +11,13 @@ declare variable $Input as element() (:: schema-element(ns1:createNewSmsOtpCodeR
 
 declare function local:func_CreateNewSmsOtpCode_to_WSOutOfBandSmsService($Input as element() (:: schema-element(ns1:createNewSmsOtpCodeRQ) ::)) as element() (:: schema-element(ns2:createNewSmsOtpCode) ::) {
     <ns2:createNewSmsOtpCode>
-        <ns2:processContext>
-            <ns2:channelId>{fn:data($Input/ns1:processContext/ns1:channelId)}</ns2:channelId>
-            <ns2:externalId></ns2:externalId>
-        </ns2:processContext>
-        <ns2:sharedKey>{fn:data($Input/ns1:sharedKey)}</ns2:sharedKey>
-        <ns2:purpose>{fn:data($Input/ns1:purpose)}</ns2:purpose>
-        <ns2:contextBind>{fn:data($Input/ns1:contextBind)}</ns2:contextBind>
+        <processContext>
+            <channelId>{fn:data($Input/ns1:processContext/ns1:channelId)}</channelId>
+            <externalId>{fn:data($Input/ns1:processContext/ns1:externalId)}</externalId>
+        </processContext>
+        <sharedKey>{fn:data($Input/ns1:sharedKey)}</sharedKey>
+        <purpose>{fn:data($Input/ns1:purpose)}</purpose>
+        <contextBind>{fn:data($Input/ns1:contextBind)}</contextBind>
     </ns2:createNewSmsOtpCode>
 };
 

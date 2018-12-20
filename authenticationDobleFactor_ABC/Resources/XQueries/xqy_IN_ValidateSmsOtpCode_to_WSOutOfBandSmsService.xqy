@@ -11,17 +11,17 @@ declare variable $Input as element() (:: schema-element(ns1:validateSmsOtpCode_R
 
 declare function local:func_ValidateSmsOtpCode_to_WSOutOfBandSmsService($Input as element() (:: schema-element(ns1:validateSmsOtpCode_Request) ::)) as element() (:: schema-element(ns2:validateSmsOtpCode) ::) {
     <ns2:validateSmsOtpCode>
-        <ns2:processContext>
-           <ns2:channelId>{fn:data($Input/ns1:processContext/ns1:channelId)}</ns2:channelId>
-           <ns2:externalId></ns2:externalId>
-            <ns2:alternativeSharedKey>
-               <ns2:name>{fn:data($Input/ns1:processContext/ns1:alternativeSharedKey/ns1:name)}</ns2:name>
-               <ns2:value>{fn:data($Input/ns1:processContext/ns1:alternativeSharedKey/ns1:value)}</ns2:value>
-            </ns2:alternativeSharedKey>
-        </ns2:processContext>
-        <ns2:sharedKey>{fn:data($Input/ns1:sharedKey)}</ns2:sharedKey>
-        <ns2:otpCode>{fn:data($Input/ns1:otpCode)}</ns2:otpCode>
-        <ns2:contextBind>{fn:data($Input/ns1:contextBind)}</ns2:contextBind>
+        <processContext>
+           <channelId>{fn:data($Input/ns1:processContext/ns1:channelId)}</channelId>
+            <externalId>{fn:data($Input/ns1:processContext/ns1:externalId)}</externalId>
+            <alternativeSharedKey>
+                <name>{fn:data($Input/ns1:processContext/ns1:alternativeSharedKey/ns1:name)}</name>
+                <value>{fn:data($Input/ns1:processContext/ns1:alternativeSharedKey/ns1:value)}</value>
+            </alternativeSharedKey>
+        </processContext>
+        <sharedKey>{fn:data($Input/ns1:sharedKey)}</sharedKey>
+        <otpCode>{fn:data($Input/ns1:otpCode)}</otpCode>
+        <contextBind></contextBind>
     </ns2:validateSmsOtpCode>
 };
 

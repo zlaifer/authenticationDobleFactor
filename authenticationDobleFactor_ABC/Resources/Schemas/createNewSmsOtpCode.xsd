@@ -13,6 +13,7 @@
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element name="channelId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="externalId" type="xsd:string" minOccurs="0"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -20,12 +21,14 @@
       <xsd:element name="sharedKey" type="xsd:string"/>
       <xsd:element name="purpose" type="xsd:string"/>
       <xsd:element name="contextBind" type="xsd:string"/>
+      <xsd:element name="token" type="xsd:string"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="createNewSmsOtpCodeRS">
     <xsd:sequence>
       <xsd:element name="resultCode" type="xsd:int" minOccurs="0"/>
       <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element minOccurs="0" name="remainingFailedAttempts" type="xsd:int"/>
     </xsd:sequence>
   </xsd:complexType>
 </xsd:schema>

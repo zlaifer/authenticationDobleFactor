@@ -1,5 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<wsdl:definitions name="WSOutOfBandSmsService" targetNamespace="http://soap.easysol.net/detect/smsService" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.easysol.net/detect/smsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="WSOutOfBandSmsService" targetNamespace="http://soap.easysol.net/detect/smsService" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.easysol.net/detect/smsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
 <xs:schema elementFormDefault="qualified" targetNamespace="http://soap.easysol.net/detect/smsService" version="1.0" xmlns:tns="http://soap.easysol.net/detect/smsService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <xs:element name="activeClientService" type="tns:activeClientService"/>
