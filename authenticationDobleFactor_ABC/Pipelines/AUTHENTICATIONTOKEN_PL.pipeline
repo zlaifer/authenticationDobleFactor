@@ -40,8 +40,7 @@
                 <con:actions>
                     <con1:wsCallout>
                         <con2:id>_ActionId-N3f5776ff.b49ac7a.0.167c6bebd38.N7e99</con2:id>
-                        <con1:service ref="authenticationDobleFactor_ABC/BusinessServices/AUTHENTICATION_TOKEN_BS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
-                        <con1:operation>TOKEN</con1:operation>
+                        <con1:service ref="authenticationDobleFactor_ABC/BusinessServices/AUTHENTICATION_TOKEN_2_BS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
                         <con1:request>
                             <con1:payload wrapped="true">body</con1:payload>
                         </con1:request>
@@ -49,10 +48,32 @@
                             <con1:payload wrapped="true">body</con1:payload>
                         </con1:response>
                         <con1:requestTransform>
+                            <con1:replace varName="outbound" contents-only="false">
+                                <con2:id>_ActionId-ab091bf.6badc309.0.167c75eb78e.N7ee9</con2:id>
+                                <con1:location>
+                                    <con2:xpathText>$outbound/ctx:transport/ctx:request/tp:headers</con2:xpathText>
+                                </con1:location>
+                                <con1:expr>
+                                    <con2:xqueryText>&lt;tran:headers xsi:type="http:HttpRequestHeaders" xmlns:tran="http://www.bea.com/wli/sb/transports">&lt;Host>&lt;/Host>&lt;/tran:headers></con2:xqueryText>
+                                </con1:expr>
+                            </con1:replace>
+                            <con1:replace varName="outbound" contents-only="true">
+                                <con2:id>_ActionId-ab091bf.6badc309.0.167c75eb78e.N7ee6</con2:id>
+                                <con1:location>
+                                    <con2:xpathText>./ctx:transport/ctx:request/tp:headers/http:Host</con2:xpathText>
+                                </con1:location>
+                                <con1:expr>
+                                    <con2:xqueryText>'5ae76dfb7059319b48f5fe12a50af6ea1d498bb149c9632e10ddfa4de14848e062f5e6df595c4cf7331114f64592b41ab3eae5244ec1607018d97e9d292630cf.xyz'</con2:xqueryText>
+                                </con1:expr>
+                            </con1:replace>
                             <con1:routing-options>
                                 <con2:id>_ActionId-N3f5776ff.b49ac7a.0.167c6bebd38.N7e95</con2:id>
+                                <con1:uriExpr>
+                                    <con2:xqueryText>'https://secureaccessdemo.bsecure.co:8443/oauth2/token'</con2:xqueryText>
+                                </con1:uriExpr>
                                 <con1:restOptions>
                                     <con1:verb>POST</con1:verb>
+                                    <con1:accept>application/json</con1:accept>
                                     <con1:query-param>
                                         <con1:name>grant_type</con1:name>
                                         <con1:value>
@@ -60,15 +81,15 @@
                                         </con1:value>
                                     </con1:query-param>
                                     <con1:query-param>
-                                        <con1:name>client_secret</con1:name>
-                                        <con1:value>
-                                            <con2:xqueryText>'9597882e06094447b4dcc70d48198266'</con2:xqueryText>
-                                        </con1:value>
-                                    </con1:query-param>
-                                    <con1:query-param>
                                         <con1:name>client_id</con1:name>
                                         <con1:value>
                                             <con2:xqueryText>'7e7e7efa9a1b4319909447a435517440'</con2:xqueryText>
+                                        </con1:value>
+                                    </con1:query-param>
+                                    <con1:query-param>
+                                        <con1:name>client_secret</con1:name>
+                                        <con1:value>
+                                            <con2:xqueryText>'9597882e06094447b4dcc70d48198266'</con2:xqueryText>
                                         </con1:value>
                                     </con1:query-param>
                                 </con1:restOptions>

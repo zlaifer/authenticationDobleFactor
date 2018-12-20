@@ -36,24 +36,24 @@
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_local_20x20.png" X="7" Y="4" width="20" height="20"/>
         <dgm:operations/>
     </dgm:gService>
-    <dgm:gReference name="AUTHENTICATION_TOKEN_BS">
-        <dgm:body borderWidth="2" arcRad="20" X="559" Y="240" width="136" height="54">
+    <dgm:gReference name="AUTHENTICATION_TOKEN_2_BS">
+        <dgm:body borderWidth="2" arcRad="20" X="624" Y="240" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="549" Y="233" width="156" height="68">
+        <dgm:shadow arcRad="20" X="614" Y="233" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
-        <dgm:inputPort name="AUTHENTICATION_TOKEN_BS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
-        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="14" Y="4" width="20" height="20"/>
+        <dgm:inputPort name="AUTHENTICATION_TOKEN_2_BS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_http_20x20.png" X="14" Y="4" width="20" height="20"/>
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gReference name="WSOutOfBandSmsService_BS">
-        <dgm:body borderWidth="2" arcRad="20" X="559" Y="88" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="624" Y="88" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="549" Y="81" width="156" height="68">
+        <dgm:shadow arcRad="20" X="614" Y="81" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="WSOutOfBandSmsService_BS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -61,25 +61,25 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gComponent name="AUTHENTICATIONTOKEN_PL">
-        <dgm:body borderWidth="2" arcRad="20" X="290" Y="225" width="130" height="61">
+        <dgm:body borderWidth="2" arcRad="20" X="326" Y="225" width="130" height="61">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="280" Y="218" width="150" height="77">
+        <dgm:shadow arcRad="20" X="316" Y="218" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
-        <dgm:outputPort name="businessservice.-495166717.AUTHENTICATION_TOKEN_BS" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="businessservice.-495166717.AUTHENTICATION_TOKEN_2_BS" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
     <dgm:gComponent name="CREATE_NEW_SMS_OTP_CODE_PL">
-        <dgm:body borderWidth="2" arcRad="20" X="290" Y="130" width="130" height="61">
+        <dgm:body borderWidth="2" arcRad="20" X="326" Y="130" width="130" height="61">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="280" Y="123" width="150" height="77">
+        <dgm:shadow arcRad="20" X="316" Y="123" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -87,12 +87,12 @@
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
     <dgm:gComponent name="VALIDATE_SMS_OTP_CODE_PL">
-        <dgm:body borderWidth="2" arcRad="20" X="290" Y="26" width="130" height="61">
+        <dgm:body borderWidth="2" arcRad="20" X="326" Y="26" width="130" height="61">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="280" Y="19" width="150" height="77">
+        <dgm:shadow arcRad="20" X="316" Y="19" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -100,36 +100,36 @@
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
     <dgm:gWireLink source="AUTHENTICATIONTOKEN_PS" target="AUTHENTICATIONTOKEN_PL/__service__" width="2">
-        <dgm:gSegment X1="168" Y1="250" X2="280" Y2="250"/>
+        <dgm:gSegment X1="168" Y1="250" X2="316" Y2="250"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="CREATE_NEW_SMS_OTP_CODE_PS" target="CREATE_NEW_SMS_OTP_CODE_PL/__service__" width="2">
-        <dgm:gSegment X1="168" Y1="155" X2="280" Y2="155"/>
+        <dgm:gSegment X1="168" Y1="155" X2="316" Y2="155"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="VALIDATE_SMS_OTP_CODE_PS" target="VALIDATE_SMS_OTP_CODE_PL/__service__" width="2">
-        <dgm:gSegment X1="168" Y1="51" X2="280" Y2="51"/>
+        <dgm:gSegment X1="168" Y1="51" X2="316" Y2="51"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
-    <dgm:gWireLink source="AUTHENTICATIONTOKEN_PL/businessservice.-495166717.AUTHENTICATION_TOKEN_BS" target="AUTHENTICATION_TOKEN_BS" width="2">
-        <dgm:gSegment X1="430" Y1="250" X2="549" Y2="250"/>
+    <dgm:gWireLink source="AUTHENTICATIONTOKEN_PL/businessservice.-495166717.AUTHENTICATION_TOKEN_2_BS" target="AUTHENTICATION_TOKEN_2_BS" width="2">
+        <dgm:gSegment X1="466" Y1="250" X2="614" Y2="250"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="CREATE_NEW_SMS_OTP_CODE_PL/businessservice.-495166717.WSOutOfBandSmsService_BS" target="WSOutOfBandSmsService_BS" width="2">
-        <dgm:gSegment X1="430" Y1="155" X2="510" Y2="155"/>
-        <dgm:gSegment X1="510" Y1="155" X2="510" Y2="98"/>
-        <dgm:gSegment X1="510" Y1="98" X2="549" Y2="98"/>
+        <dgm:gSegment X1="466" Y1="155" X2="564" Y2="155"/>
+        <dgm:gSegment X1="564" Y1="155" X2="564" Y2="98"/>
+        <dgm:gSegment X1="564" Y1="98" X2="614" Y2="98"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="VALIDATE_SMS_OTP_CODE_PL/businessservice.-495166717.WSOutOfBandSmsService_BS" target="WSOutOfBandSmsService_BS" width="2">
-        <dgm:gSegment X1="430" Y1="51" X2="525" Y2="51"/>
-        <dgm:gSegment X1="525" Y1="51" X2="525" Y2="98"/>
-        <dgm:gSegment X1="525" Y1="98" X2="549" Y2="98"/>
+        <dgm:gSegment X1="466" Y1="51" X2="579" Y2="51"/>
+        <dgm:gSegment X1="579" Y1="51" X2="579" Y2="98"/>
+        <dgm:gSegment X1="579" Y1="98" X2="614" Y2="98"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>

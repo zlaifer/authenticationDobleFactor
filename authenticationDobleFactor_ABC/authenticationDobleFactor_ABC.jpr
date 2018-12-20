@@ -206,14 +206,13 @@
             <value n="profileClass" v="oracle.tip.tools.ide.fabric.deploy.sar.SarProfile"/>
             <value n="profileName" v="authenticationDobleFactor_ABC"/>
          </hash>
-         <hash n="ServiceBus1">
+         <hash n="Project1">
             <value n="profileClass" v="SbProjectDeployProfile"/>
-            <value n="profileName" v="ServiceBus1"/>
+            <value n="profileName" v="Project1"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="authenticationDobleFactor_ABC"/>
-         <string v="ServiceBus1"/>
+         <string v="Project1"/>
          <string v="authenticationDobleFactor_ABC"/>
       </list>
    </hash>
@@ -306,5 +305,4 @@
          </list>
       </hash>
    </hash>
-   <value n="SOA_WSDL_FOLDER_NAME" v=""/>
 </jpr:project>
