@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions targetNamespace="urn:validateSmsOtpCode_Token" xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="urn:validateSmsOtpCode_Token" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+             xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:val="http://validateSmsOtpCode.claro.com.co">
+  <types>
+    <xsd:schema targetNamespace="urn:validateSmsOtpCode_Token/types" elementFormDefault="qualified">
+      <xsd:import namespace="http://validateSmsOtpCode.claro.com.co"
+                  schemaLocation="../Schemas/validateSmsOtpCode_Token.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="validateSmsOtpCode_Token_RQ">
+    <part name="validateSmsOtpCode_Token_RQ" element="val:validateSmsOtpCode_Token_RQ"/>
+  </message>
+  <message name="validateSmsOtpCode_Token_RS">
+    <part name="validateSmsOtpCode_Token_rs" element="val:validateSmsOtpCode_Token_RS"/>
+  </message>
+  <portType name="validateSmsOtpCode_Token_porType">
+    <operation name="validateSmsOtpCode_Token">
+      <input message="tns:validateSmsOtpCode_Token_RQ"/>
+      <output message="tns:validateSmsOtpCode_Token_RS"/>
+    </operation>
+  </portType>
+  <binding name="validateSmsOtpCode_Token_porTypeSOAP11Binding" type="tns:validateSmsOtpCode_Token_porType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="validateSmsOtpCode_Token">
+      <soap:operation style="document" soapAction="urn:validateSmsOtpCode_Token/validateSmsOtpCode_Token"/>
+      <input>
+        <soap:body use="literal" parts="validateSmsOtpCode_Token_RQ"/>
+      </input>
+      <output>
+        <soap:body use="literal" parts="validateSmsOtpCode_Token_rs"/>
+      </output>
+    </operation>
+  </binding>
+</definitions>

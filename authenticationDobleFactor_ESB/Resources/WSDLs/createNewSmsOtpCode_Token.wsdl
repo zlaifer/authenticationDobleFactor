@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions targetNamespace="urn:createNewSmsOtpCode_Token" xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="urn:createNewSmsOtpCode_Token" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+             xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:create="http://createNewSmsOtpCode_Token.claro.com.co">
+  <types>
+    <xsd:schema targetNamespace="urn:createNewSmsOtpCode_Token/types" elementFormDefault="qualified">
+      <xsd:import schemaLocation="../Schemas/createNewSmsOtpCode_Token.xsd"
+                  namespace="http://createNewSmsOtpCode_Token.claro.com.co"/>
+    </xsd:schema>
+  </types>
+  <message name="createNewSmsOtpCode_Token_RQ">
+    <part name="createNewSmsOtpCode_Token_rq" element="create:createNewSmsOtpCode_Token_RQ"/>
+  </message>
+  <message name="createNewSmsOtpCode_Token_RS">
+    <part name="createNewSmsOtpCode_Token_rs" element="create:createNewSmsOtpCode_Token_RS"/>
+  </message>
+  <portType name="createNewSmsOtpCode_Token_portType">
+    <operation name="createNewSmsOtpCode_Token">
+      <input message="tns:createNewSmsOtpCode_Token_RQ"/>
+      <output message="tns:createNewSmsOtpCode_Token_RS"/>
+    </operation>
+  </portType>
+  <binding name="createNewSmsOtpCode_Token_portTypeSOAP11Binding" type="tns:createNewSmsOtpCode_Token_portType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createNewSmsOtpCode_Token">
+      <soap:operation style="document" soapAction="urn:createNewSmsOtpCode_Token/createNewSmsOtpCode_Token"/>
+      <input>
+        <soap:body use="literal" parts="createNewSmsOtpCode_Token_rq"/>
+      </input>
+      <output>
+        <soap:body use="literal" parts="createNewSmsOtpCode_Token_rs"/>
+      </output>
+    </operation>
+  </binding>
+</definitions>
