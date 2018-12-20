@@ -16,15 +16,7 @@
         <con:pipeline type="request" name="request-N3f5776ff.N57a835a1.0.167c75cf1d5.N8000">
             <con:stage id="_StageId-N3f5776ff.N57a835a1.0.167c75cf1d5.N7ffe" name="Stage1">
                 <con:context/>
-                <con:actions>
-                    <con1:wsCallout>
-                        <con2:id>_ActionId-N3f5776ff.N57a835a1.0.167c75cf1d5.N7ffa</con2:id>
-                        <con1:request/>
-                        <con1:response/>
-                        <con1:requestTransform/>
-                        <con1:responseTransform/>
-                    </con1:wsCallout>
-                </con:actions>
+                <con:actions></con:actions>
             </con:stage>
         </con:pipeline>
         <con:pipeline type="response" name="response-N3f5776ff.N57a835a1.0.167c75cf1d5.N7fff">
