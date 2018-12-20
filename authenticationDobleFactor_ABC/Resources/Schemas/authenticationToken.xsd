@@ -1,18 +1,16 @@
-<?xml version="1.0" encoding="windows-1252" ?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://authenticationtoken.claro.com.co/"
-            targetNamespace="http://authenticationtoken.claro.com.co/" elementFormDefault="qualified">
-  <xsd:element name="authenticationTokenRequest">
-    <xsd:annotation>
-      <xsd:documentation>A sample element</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element name="authenticationTokenResponse">
-    <xsd:complexType>
-      <xsd:sequence>
-        <xsd:element name="token_type" type="xsd:string"/>
-        <xsd:element name="access_token" type="xsd:string"/>
-        <xsd:element name="expires_in" type="xsd:int"/>
-      </xsd:sequence>
-    </xsd:complexType>
-  </xsd:element>
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/ServiceName" targetNamespace="http://TargetNamespace.com/ServiceName" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="Root-Element">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="access_token" type="xsd:string"/>
+            <xsd:element name="token_type" type="xsd:string"/>
+            <xsd:element name="expires_in" type="xsd:integer"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
 </xsd:schema>

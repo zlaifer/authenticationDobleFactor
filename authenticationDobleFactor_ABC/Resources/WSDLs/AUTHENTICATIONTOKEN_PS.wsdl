@@ -1,7 +1,8 @@
 <wsdl:definitions name="AUTHENTICATIONTOKEN_PS" targetNamespace="http://xmlns.oracle.com/authenticationDobleFactor/authenticationDobleFactor_ABC/AUTHENTICATIONTOKEN_PS" xmlns:tns="http://xmlns.oracle.com/authenticationDobleFactor/authenticationDobleFactor_ABC/AUTHENTICATIONTOKEN_PS" xmlns:inp1="http://authenticationtoken.claro.com.co/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
     <wsdl:types>
         <xsd:schema>
-            <xsd:import namespace="http://authenticationtoken.claro.com.co/" schemaLocation="../Schemas/authenticationToken.xsd"/>
+            <xsd:import namespace="http://authenticationtoken.claro.com.co/"
+                        schemaLocation="../Schemas/authenticationToken_copia.xsd"/>
         </xsd:schema>
     </wsdl:types>
     <wsdl:message name="requestMessage">
