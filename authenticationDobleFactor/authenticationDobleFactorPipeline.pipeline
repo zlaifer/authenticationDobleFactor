@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="authenticationDobleFactor/Resources/WSDLs/authenticationDobleFactor"/>
+            <con:binding>
+                <con:name>authenticationDobleFactorSOAP11Binding</con:name>
+                <con:namespace>urn:authenticationDobleFactor</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-N3f5776ff.241156af.0.167d11c8032.N7ffc">
+            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7ffa" name="Stage1">
+                <con:context>
+                    <con1:userNsDecl prefix="val" namespace="http://validatesmsotpcode.claro.com.co/" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:validate xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id>_ActionId-N3f5776ff.241156af.0.167d11c8032.N7ff2</con2:id>
+                        <con1:schema ref="authenticationDobleFactor_ABC/Resources/Schemas/validateSmsOtpCode"/>
+                        <con1:schemaElement xmlns:val="http://validatesmsotpcode.claro.com.co/">val:validateSmsOtpCode_Request</con1:schemaElement>
+                        <con1:varName>body</con1:varName>
+                        <con1:location>
+                            <con2:xpathText>./val:validateSmsOtpCode_Request</con2:xpathText>
+                        </con1:location>
+                    </con1:validate>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-N3f5776ff.241156af.0.167d11c8032.N7ffb">
+            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7ff9" name="Stage1">
+                <con:context>
+                    <con1:userNsDecl prefix="val" namespace="http://validatesmsotpcode.claro.com.co/" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:validate xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id>_ActionId-N3f5776ff.241156af.0.167d11c8032.N7fef</con2:id>
+                        <con1:schema ref="authenticationDobleFactor_ABC/Resources/Schemas/validateSmsOtpCode"/>
+                        <con1:schemaElement xmlns:val="http://validatesmsotpcode.claro.com.co/">val:validateSmsOtpCode_Response</con1:schemaElement>
+                        <con1:varName>body</con1:varName>
+                        <con1:location>
+                            <con2:xpathText>./val:validateSmsOtpCode_Response</con2:xpathText>
+                        </con1:location>
+                    </con1:validate>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="request" name="request-N3f5776ff.241156af.0.167d11c8032.N7ff8">
+            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7ff6" name="Stage1">
+                <con:context>
+                    <con1:userNsDecl prefix="cre" namespace="http://createnewsmsotpcode.claro.com.co/" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:validate xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id>_ActionId-N3f5776ff.241156af.0.167d11c8032.N7fec</con2:id>
+                        <con1:schema ref="authenticationDobleFactor_ABC/Resources/Schemas/createNewSmsOtpCode"/>
+                        <con1:schemaElement xmlns:cre="http://createnewsmsotpcode.claro.com.co/">cre:createNewSmsOtpCodeRQ</con1:schemaElement>
+                        <con1:varName>body</con1:varName>
+                        <con1:location>
+                            <con2:xpathText>./cre:createNewSmsOtpCodeRQ</con2:xpathText>
+                        </con1:location>
+                    </con1:validate>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-N3f5776ff.241156af.0.167d11c8032.N7ff7">
+            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7ff5" name="Stage1">
+                <con:context>
+                    <con1:userNsDecl prefix="cre" namespace="http://createnewsmsotpcode.claro.com.co/" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:validate xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id>_ActionId-N3f5776ff.241156af.0.167d11c8032.N7fe9</con2:id>
+                        <con1:schema ref="authenticationDobleFactor_ABC/Resources/Schemas/createNewSmsOtpCode"/>
+                        <con1:schemaElement xmlns:cre="http://createnewsmsotpcode.claro.com.co/">cre:createNewSmsOtpCodeRS</con1:schemaElement>
+                        <con1:varName>body</con1:varName>
+                        <con1:location>
+                            <con2:xpathText>./cre:createNewSmsOtpCodeRS</con2:xpathText>
+                        </con1:location>
+                    </con1:validate>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-N3f5776ff.241156af.0.167d11c8032.N7f7e">
+            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7f7d" name="Stage1">
+                <con:context/>
+                <con:actions>
+                    <con3:assign varName="errorHandler">
+                        <con2:id>_ActionId-N3f5776ff.241156af.0.167d11c8032.N7f7a</con2:id>
+                        <con3:expr>
+                            <con2:xqueryTransform>
+                                <con2:resource ref="authenticationDobleFactor/Resources/XQueries/xqy_ErrorHandler"/>
+                                <con2:param name="errorDescription">
+                                    <con2:path>$fault/ctx:reason</con2:path>
+                                </con2:param>
+                                <con2:param name="errorCode">
+                                    <con2:path>$fault/ctx:errorCode</con2:path>
+                                </con2:param>
+                                <con2:param name="operation">
+                                    <con2:path>$operation</con2:path>
+                                </con2:param>
+                            </con2:xqueryTransform>
+                        </con3:expr>
+                    </con3:assign>
+                    <con2:reply>
+                        <con2:id>_ActionId-N3f5776ff.241156af.0.167d11c8032.N7f74</con2:id>
+                    </con2:reply>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-N3f5776ff.241156af.0.167d11c8032.N7f0f">
+            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7ed8" name="Stage1">
+                <con:context/>
+                <con:actions>
+                    <con3:assign varName="errorHandler">
+                        <con2:id>_ActionId-N3f5776ff.241156af.0.167d11c8032.N7ed7</con2:id>
+                        <con3:expr>
+                            <con2:xqueryTransform>
+                                <con2:resource ref="authenticationDobleFactor/Resources/XQueries/xqy_ErrorHandler"/>
+                                <con2:param name="errorDescription">
+                                    <con2:path>$fault/ctx:reason</con2:path>
+                                </con2:param>
+                                <con2:param name="errorCode">
+                                    <con2:path>$fault/ctx:errorCode</con2:path>
+                                </con2:param>
+                                <con2:param name="operation">
+                                    <con2:path>$operation</con2:path>
+                                </con2:param>
+                            </con2:xqueryTransform>
+                        </con3:expr>
+                    </con3:assign>
+                    <con2:reply>
+                        <con2:id>_ActionId-N3f5776ff.241156af.0.167d11c8032.N7ed6</con2:id>
+                    </con2:reply>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:branch-node type="operation" id="_FlowId-N3f5776ff.241156af.0.167d11c8032.N7ffd" name="BranchNode1">
+                <con:context/>
+                <con:branch-table>
+                    <con:branch name="validateSmsOtpCode_RQ">
+                        <con:operator>equals</con:operator>
+                        <con:value/>
+                        <con:flow>
+                            <con:pipeline-node name="PipelinePairNode1">
+                                <con:request>request-N3f5776ff.241156af.0.167d11c8032.N7ffc</con:request>
+                                <con:response>response-N3f5776ff.241156af.0.167d11c8032.N7ffb</con:response>
+                            </con:pipeline-node>
+                            <con:route-node name="RouteNode1" error-handler="error-N3f5776ff.241156af.0.167d11c8032.N7f7e">
+                                <con:context/>
+                                <con:actions>
+                                    <con1:route>
+                                        <con2:id>_ActionId-N3f5776ff.241156af.0.167d11c8032.N7fe5</con2:id>
+                                        <con1:outboundTransform/>
+                                        <con1:responseTransform/>
+                                    </con1:route>
+                                </con:actions>
+                            </con:route-node>
+                        </con:flow>
+                    </con:branch>
+                    <con:branch name="createNewSmsOtpCode">
+                        <con:operator>equals</con:operator>
+                        <con:value/>
+                        <con:flow>
+                            <con:pipeline-node name="PipelinePairNode2">
+                                <con:request>request-N3f5776ff.241156af.0.167d11c8032.N7ff8</con:request>
+                                <con:response>response-N3f5776ff.241156af.0.167d11c8032.N7ff7</con:response>
+                            </con:pipeline-node>
+                            <con:route-node name="RouteNode2" error-handler="error-N3f5776ff.241156af.0.167d11c8032.N7f0f">
+                                <con:context/>
+                                <con:actions>
+                                    <con1:route>
+                                        <con2:id>_ActionId-N3f5776ff.241156af.0.167d11c8032.N7fe1</con2:id>
+                                        <con1:outboundTransform/>
+                                        <con1:responseTransform/>
+                                    </con1:route>
+                                </con:actions>
+                            </con:route-node>
+                        </con:flow>
+                    </con:branch>
+                    <con:default-branch>
+                        <con:flow/>
+                    </con:default-branch>
+                </con:branch-table>
+            </con:branch-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>
