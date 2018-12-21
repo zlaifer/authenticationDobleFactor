@@ -46,28 +46,6 @@
                     </con1:wsCallout>
                 </con:actions>
             </con:stage>
-            <con:stage id="_StageId-N3f5776ff.N7eb1b29c.0.167cda09c31.N7f85" name="Stage1">
-                <con:context>
-                    <con1:userNsDecl prefix="cre" namespace="http://createnewsmsotpcode.claro.com.co/"/>
-                </con:context>
-                <con:disabled>true</con:disabled>
-                <con:actions>
-                    <con2:replace varName="body" contents-only="true">
-                        <con1:id>_ActionId-N3f5776ff.N7eb1b29c.0.167cda09c31.N7f84</con1:id>
-                        <con2:expr>
-                            <con1:xqueryTransform>
-                                <con1:resource ref="authenticationDobleFactor_ESB/Resources/XQueries/xqy_IN_CreateNewSmsOtp_to_CreateNewSmsOtp"/>
-                                <con1:param name="Token">
-                                    <con1:path>concat('bearer ',$access_token)</con1:path>
-                                </con1:param>
-                                <con1:param name="CreateNewSmsOtpRequest">
-                                    <con1:path>$body/cre:createNewSmsOtpCodeRQ</con1:path>
-                                </con1:param>
-                            </con1:xqueryTransform>
-                        </con2:expr>
-                    </con2:replace>
-                </con:actions>
-            </con:stage>
             <con:stage id="_StageId-N3f5776ff.N7eb1b29c.0.167cda09c31.N7ffe" name="SC_CreateNewSmsOtpCode">
                 <con:context>
                     <con1:userNsDecl prefix="cre" namespace="http://createnewsmsotpcode.claro.com.co/"/>
@@ -90,7 +68,7 @@
                                     <con3:xqueryTransform xmlns:con3="http://www.bea.com/wli/sb/stages/config">
                                         <con3:resource ref="authenticationDobleFactor_ESB/Resources/XQueries/xqy_IN_CreateNewSmsOtp_to_CreateNewSmsOtp"/>
                                         <con3:param name="Token">
-                                            <con3:path>concat('bearer ',$access_token)</con3:path>
+                                            <con3:path>$access_token</con3:path>
                                         </con3:param>
                                         <con3:param name="CreateNewSmsOtpRequest">
                                             <con3:path>$body/cre:createNewSmsOtpCodeRQ</con3:path>
@@ -104,7 +82,27 @@
                 </con:actions>
             </con:stage>
         </con:pipeline>
-        <con:pipeline type="response" name="response-N3f5776ff.N7eb1b29c.0.167cda09c31.N7fff"/>
+        <con:pipeline type="response" name="response-N3f5776ff.N7eb1b29c.0.167cda09c31.N7fff">
+            <con:stage id="_StageId-ab026af.36d5cdfc.0.167d1064428.N7ea9" name="stg_OutputTransform">
+                <con:context/>
+                <con:actions>
+                    <con2:replace varName="body" contents-only="true">
+                        <con1:id>_ActionId-ab026af.36d5cdfc.0.167d1064428.N7e76</con1:id>
+                        <con2:location>
+                            <con1:xpathText>.</con1:xpathText>
+                        </con2:location>
+                        <con2:expr>
+                            <con1:xqueryTransform>
+                                <con1:resource ref="authenticationDobleFactor_ESB/Resources/XQueries/xqy_OUT_CreateNewSmsOtp_to_CreateNewSmsOtp"/>
+                                <con1:param name="CreateNewSmsOtp">
+                                    <con1:path>$createSmsResponse</con1:path>
+                                </con1:param>
+                            </con1:xqueryTransform>
+                        </con2:expr>
+                    </con2:replace>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
         <con:flow>
             <con:pipeline-node name="PipelinePairNode1">
                 <con:request>request-N3f5776ff.N7eb1b29c.0.167cda09c31.N8000</con:request>
