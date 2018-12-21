@@ -1,6 +1,0 @@
-<view_states>
-   <function arity="2" name="func_OUT_WSOutOfBandSmsService_to_CreateNewSmsOtpCode">
-      <source_tree_view last.visible.row="1" last.visible.path="/sourceRoot[[0]]/resultDescription[[1]]" first.visible.path="/sourceRoot[[0]]/resultCode[[0]]" expanded.paths="" first.visible.row="0" selected.paths="/sourceRoot[[0]]/resultDescription[[1]]"/>
-      <target_tree_view last.visible.row="3" last.visible.path="/TargetRoot[[0]]/createNewSmsOtpCodeRS[[0]]/remainingFailedAttempts[[2]]" first.visible.path="/TargetRoot[[0]]/createNewSmsOtpCodeRS[[0]]" expanded.paths="/TargetRoot[[0]]/createNewSmsOtpCodeRS[[0]]" first.visible.row="0" selected.paths="/TargetRoot[[0]]/createNewSmsOtpCodeRS[[0]]/resultDescription[[1]]"/>
-   </function>
-</view_states>

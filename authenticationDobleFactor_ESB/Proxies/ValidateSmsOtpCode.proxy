@@ -5,10 +5,10 @@
             <con:inboundWss processWssHeader="true"/>
         </ser:security>
         <ser:binding type="SOAP" xsi:type="con:SoapBindingType" isSoap12="false" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
-            <con:wsdl ref="authenticationDobleFactor_ESB/Resources/WSDLs/validateSmsOtpCode_token"/>
+            <con:wsdl ref="authenticationDobleFactor_ABC/Resources/WSDLs/VALIDATE_SMS_OTP_CODE_PS"/>
             <con:binding>
-                <con:name>validateSmsOtpCode_Token_porTypeSOAP11Binding</con:name>
-                <con:namespace>urn:validateSmsOtpCode_Token</con:namespace>
+                <con:name>VALIDATE_SMS_OTP_CODE_bind</con:name>
+                <con:namespace>http://xmlns.oracle.com/authenticationDobleFactor/authenticationDobleFactor_ABC/VALIDATE_SMS_OTP_CODE_PS</con:namespace>
             </con:binding>
             <con:selector type="SOAP body"/>
         </ser:binding>
@@ -16,7 +16,7 @@
         <ser:ws-policy>
             <ser:binding-mode>no-policies</ser:binding-mode>
         </ser:ws-policy>
-        <ser:invoke ref="authenticationDobleFactor_ESB/Pipelines/validateSmsOtpCode_tokenPipeline" xsi:type="con:PipelineRef" xmlns:con="http://www.bea.com/wli/sb/pipeline/config"/>
+        <ser:invoke ref="authenticationDobleFactor_ESB/Pipelines/ValidateSmsOtpCode_PL" xsi:type="con:PipelineRef" xmlns:con="http://www.bea.com/wli/sb/pipeline/config"/>
         <ser:xqConfiguration>
             <ser:snippetVersion>1.0</ser:snippetVersion>
         </ser:xqConfiguration>

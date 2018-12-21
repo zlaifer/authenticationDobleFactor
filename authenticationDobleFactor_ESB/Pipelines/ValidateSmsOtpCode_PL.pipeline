@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="authenticationDobleFactor_ABC/Resources/WSDLs/VALIDATE_SMS_OTP_CODE_PS"/>
+            <con:binding>
+                <con:name>VALIDATE_SMS_OTP_CODE_bind</con:name>
+                <con:namespace>http://xmlns.oracle.com/authenticationDobleFactor/authenticationDobleFactor_ABC/VALIDATE_SMS_OTP_CODE_PS</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-N3f5776ff.N7eb1b29c.0.167cda09c31.N7f1e">
+            <con:stage id="_StageId-N3f5776ff.N7eb1b29c.0.167cda09c31.N7e7c" name="SC_AuthenticationToken">
+                <con:context/>
+                <con:actions>
+                    <con1:wsCallout xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f5776ff.N7eb1b29c.0.167cda09c31.N7e7b</con2:id>
+                        <con1:service ref="authenticationDobleFactor_ABC/Proxies/AUTHENTICATIONTOKEN_PS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>AUTHENTICATIONTOKEN</con1:operation>
+                        <con1:request>
+                            <con1:body wrapped="false">tokenRequest</con1:body>
+                        </con1:request>
+                        <con1:response>
+                            <con1:body wrapped="false">tokenResponse</con1:body>
+                        </con1:response>
+                        <con1:requestTransform>
+                            <con1:assign varName="tokenRequest">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f5776ff.N7eb1b29c.0.167cda09c31.N7e7a</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">&lt;aut:authenticationTokenRequest xmlns:aut="http://authenticationtoken.claro.com.co/">anyType&lt;/aut:authenticationTokenRequest></con2:xqueryText>
+                                </con1:expr>
+                            </con1:assign>
+                        </con1:requestTransform>
+                        <con1:responseTransform>
+                            <con1:assign varName="access_token">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f5776ff.N7eb1b29c.0.167cda09c31.N7e79</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">data($tokenResponse/*)</con2:xqueryText>
+                                </con1:expr>
+                            </con1:assign>
+                        </con1:responseTransform>
+                    </con1:wsCallout>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N3f5776ff.N7eb1b29c.0.167cda09c31.N7e0f" name="SC_ValidateSmsOtpCode">
+                <con:context>
+                    <con1:userNsDecl prefix="val" namespace="http://validatesmsotpcode.claro.com.co/"/>
+                    <con1:userNsDecl prefix="cre" namespace="http://createnewsmsotpcode.claro.com.co/"/>
+                </con:context>
+                <con:actions>
+                    <con1:wsCallout xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f5776ff.N7eb1b29c.0.167cda09c31.N7e0e</con2:id>
+                        <con1:service ref="authenticationDobleFactor_ABC/Proxies/VALIDATE_SMS_OTP_CODE_PS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>VALIDATE_SMS_OTP_CODE_PS</con1:operation>
+                        <con1:request>
+                            <con1:body wrapped="false">validateSmsRequest</con1:body>
+                        </con1:request>
+                        <con1:response>
+                            <con1:body wrapped="false">validateSmsResponse</con1:body>
+                        </con1:response>
+                        <con1:requestTransform>
+                            <con1:assign varName="validateSmsRequest">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f5776ff.N7eb1b29c.0.167cda09c31.N7e0d</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                        <con2:resource ref="authenticationDobleFactor_ESB/Resources/XQueries/xqy_IN_ValidateSmsOtp_to_ValidateSmsOtp"/>
+                                        <con2:param name="Token">
+                                            <con2:path>concat('bearer ',$access_token)</con2:path>
+                                        </con2:param>
+                                        <con2:param name="ValidateSmsOtpRequest">
+                                            <con2:path>$body/val:validateSmsOtpCode_Request</con2:path>
+                                        </con2:param>
+                                    </con2:xqueryTransform>
+                                </con1:expr>
+                            </con1:assign>
+                        </con1:requestTransform>
+                        <con1:responseTransform/>
+                    </con1:wsCallout>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-N3f5776ff.N7eb1b29c.0.167cda09c31.N7f1d"/>
+        <con:flow>
+            <con:pipeline-node name="PipelinePairNode1">
+                <con:request>request-N3f5776ff.N7eb1b29c.0.167cda09c31.N7f1e</con:request>
+                <con:response>response-N3f5776ff.N7eb1b29c.0.167cda09c31.N7f1d</con:response>
+            </con:pipeline-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

@@ -1,9 +1,0 @@
-<xsd:schema targetNamespace="http://createNewSmsOtpCode_Token.claro.com.co" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://createNewSmsOtpCode_Token.claro.com.co" xmlns:create="http://createnewsmsotpcode.claro.com.co/">
-  <xsd:import schemaLocation="../../../authenticationDobleFactor_ABC/Resources/Schemas/createNewSmsOtpCode.xsd" namespace="http://createnewsmsotpcode.claro.com.co/"/>
-  <xsd:element name="createNewSmsOtpCode_Token_RQ" type="create:createNewSmsOtpCodeRQ">
-    <xsd:annotation>
-      <xsd:documentation>A sample element</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:element name="createNewSmsOtpCode_Token_RS" type="create:createNewSmsOtpCodeRS"/>
-</xsd:schema>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ns:composite xmlns:ns="http://xmlns.oracle.com/sca/1.0">
     <ns:reference>
-        <ns:interface src="ProxyService:authenticationDobleFactor_ABC/Proxies/AUTHENTICATIONTOKEN_PS"/>
+        <ns:interface src="ProxyService:authenticationDobleFactor_ABC/Proxies/CREATE_NEW_SMS_OTP_CODE_PS"/>
     </ns:reference>
     <ns:reference>
-        <ns:interface src="BusinessService:authenticationDobleFactor_ABC/BusinessServices/WSOutOfBandSmsService_BS"/>
+        <ns:interface src="ProxyService:authenticationDobleFactor_ABC/Proxies/AUTHENTICATIONTOKEN_PS"/>
     </ns:reference>
     <ns:reference>
         <ns:interface src="ProxyService:authenticationDobleFactor_ABC/Proxies/VALIDATE_SMS_OTP_CODE_PS"/>

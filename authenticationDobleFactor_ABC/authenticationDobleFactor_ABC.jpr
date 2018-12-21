@@ -108,6 +108,7 @@
          <string v="WSPolicy"/>
          <string v="XML"/>
          <string v="XML_SCHEMA"/>
+         <string v="XSL"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
@@ -258,7 +259,7 @@
             <value n="name" v="Default"/>
             <hash n="oracle.jdevimpl.runner.debug.DebugConfiguration">
                <value n="promptForRemoteDebugging" v="false"/>
-               <value n="remoteParameter:SOA:hostname" v="hgalindo.mshome.net"/>
+               <value n="remoteParameter:SOA:hostname" v="hgalindo"/>
                <value n="remoteParameter:SOA:port" v="5004"/>
                <value n="remoteProtocol" v="SOA"/>
             </hash>

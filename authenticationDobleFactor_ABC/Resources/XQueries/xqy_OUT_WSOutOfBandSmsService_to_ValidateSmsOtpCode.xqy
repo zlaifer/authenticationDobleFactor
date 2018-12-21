@@ -17,7 +17,10 @@ declare function local:func_OUT_WSOutOfBandSmsService_to_ValidateSmsOtpCode($res
         <ns1:validateSmsOtpCodeResult>
             <ns1:resultCode>{fn:data($resultCode)}</ns1:resultCode>
             <ns1:resultDescription>{fn:data($resultDescription)}</ns1:resultDescription>
-            <ns1:remainingFailedAttempts>{fn:data($remainingFailedAttempts)}</ns1:remainingFailedAttempts>
+            <ns1:remainingFailedAttempts>{if (fn:empty($remainingFailedAttempts)) then
+                (0)
+                else
+                (fn:data($remainingFailedAttempts))}</ns1:remainingFailedAttempts>
         </ns1:validateSmsOtpCodeResult>
     </ns1:validateSmsOtpCode_Response>
 };
