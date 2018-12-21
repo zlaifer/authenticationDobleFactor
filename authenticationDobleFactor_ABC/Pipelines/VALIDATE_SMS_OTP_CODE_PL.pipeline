@@ -14,22 +14,6 @@
     </con:coreEntry>
     <con:router>
         <con:pipeline type="request" name="request-N3f57ff94.N16e3bee2.0.167c1f63366.N7dd6">
-            <con:stage id="_StageId-N3f57ff94.N16e3bee2.0.167c1f63366.N7cab" name="stg_InputValidate">
-                <con:context>
-                    <con1:userNsDecl prefix="val" namespace="http://validatesmsotpcode.claro.com.co/"/>
-                </con:context>
-                <con:actions>
-                    <con2:validate>
-                        <con1:id>_ActionId-N3f57ff94.N16e3bee2.0.167c1f63366.N7be2</con1:id>
-                        <con2:schema ref="authenticationDobleFactor_ABC/Resources/Schemas/validateSmsOtpCode"/>
-                        <con2:schemaElement xmlns:val="http://validatesmsotpcode.claro.com.co/">val:validateSmsOtpCode_Request</con2:schemaElement>
-                        <con2:varName>body</con2:varName>
-                        <con2:location>
-                            <con1:xpathText>./val:validateSmsOtpCode_Request</con1:xpathText>
-                        </con2:location>
-                    </con2:validate>
-                </con:actions>
-            </con:stage>
             <con:stage id="_StageId-N3f57ff94.N16e3bee2.0.167c1f63366.N7d70" name="stg_InputTransform">
                 <con:context>
                     <con1:userNsDecl prefix="val" namespace="http://validatesmsotpcode.claro.com.co/"/>
@@ -141,22 +125,6 @@
                             </con1:xqueryTransform>
                         </con2:expr>
                     </con2:replace>
-                </con:actions>
-            </con:stage>
-            <con:stage id="_StageId-N3f57ff94.N16e3bee2.0.167c1f63366.N7be5" name="stg_OutputValidate">
-                <con:context>
-                    <con1:userNsDecl prefix="val" namespace="http://validatesmsotpcode.claro.com.co/"/>
-                </con:context>
-                <con:actions>
-                    <con2:validate>
-                        <con1:id>_ActionId-N3f57ff94.N16e3bee2.0.167c1f63366.N7bdc</con1:id>
-                        <con2:schema ref="authenticationDobleFactor_ABC/Resources/Schemas/validateSmsOtpCode"/>
-                        <con2:schemaElement xmlns:val="http://validatesmsotpcode.claro.com.co/">val:validateSmsOtpCode_Response</con2:schemaElement>
-                        <con2:varName>body</con2:varName>
-                        <con2:location>
-                            <con1:xpathText>./val:validateSmsOtpCode_Response</con1:xpathText>
-                        </con2:location>
-                    </con2:validate>
                 </con:actions>
             </con:stage>
         </con:pipeline>
