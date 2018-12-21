@@ -14,7 +14,7 @@
     </con:coreEntry>
     <con:router>
         <con:pipeline type="request" name="request-N3f5776ff.241156af.0.167d11c8032.N7ffc">
-            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7ffa" name="Stage1">
+            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7ffa" name="inputValidate">
                 <con:context>
                     <con1:userNsDecl prefix="val" namespace="http://validatesmsotpcode.claro.com.co/" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
                 </con:context>
@@ -32,7 +32,7 @@
             </con:stage>
         </con:pipeline>
         <con:pipeline type="response" name="response-N3f5776ff.241156af.0.167d11c8032.N7ffb">
-            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7ff9" name="Stage1">
+            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7ff9" name="outputValidate">
                 <con:context>
                     <con1:userNsDecl prefix="val" namespace="http://validatesmsotpcode.claro.com.co/" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
                 </con:context>
@@ -50,7 +50,7 @@
             </con:stage>
         </con:pipeline>
         <con:pipeline type="request" name="request-N3f5776ff.241156af.0.167d11c8032.N7ff8">
-            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7ff6" name="Stage1">
+            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7ff6" name="inputValidate">
                 <con:context>
                     <con1:userNsDecl prefix="cre" namespace="http://createnewsmsotpcode.claro.com.co/" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
                 </con:context>
@@ -68,7 +68,7 @@
             </con:stage>
         </con:pipeline>
         <con:pipeline type="response" name="response-N3f5776ff.241156af.0.167d11c8032.N7ff7">
-            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7ff5" name="Stage1">
+            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7ff5" name="outputValidate">
                 <con:context>
                     <con1:userNsDecl prefix="cre" namespace="http://createnewsmsotpcode.claro.com.co/" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
                 </con:context>
@@ -86,7 +86,7 @@
             </con:stage>
         </con:pipeline>
         <con:pipeline type="error" name="error-N3f5776ff.241156af.0.167d11c8032.N7f7e">
-            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7f7d" name="Stage1">
+            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7f7d" name="St_errorHandler">
                 <con:context/>
                 <con:actions>
                     <con3:assign varName="errorHandler">
@@ -113,7 +113,7 @@
             </con:stage>
         </con:pipeline>
         <con:pipeline type="error" name="error-N3f5776ff.241156af.0.167d11c8032.N7f0f">
-            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7ed8" name="Stage1">
+            <con:stage id="_StageId-N3f5776ff.241156af.0.167d11c8032.N7ed8" name="St_errorHandler">
                 <con:context/>
                 <con:actions>
                     <con3:assign varName="errorHandler">
@@ -140,22 +140,24 @@
             </con:stage>
         </con:pipeline>
         <con:flow>
-            <con:branch-node type="operation" id="_FlowId-N3f5776ff.241156af.0.167d11c8032.N7ffd" name="BranchNode1">
+            <con:branch-node type="operation" id="_FlowId-N3f5776ff.241156af.0.167d11c8032.N7ffd" name="BN_authenticationDobleFactor">
                 <con:context/>
                 <con:branch-table>
-                    <con:branch name="validateSmsOtpCode_RQ">
+                    <con:branch name="validateSmsOtpCode">
                         <con:operator>equals</con:operator>
                         <con:value/>
                         <con:flow>
-                            <con:pipeline-node name="PipelinePairNode1">
+                            <con:pipeline-node name="PPN_VALIDATESMS">
                                 <con:request>request-N3f5776ff.241156af.0.167d11c8032.N7ffc</con:request>
                                 <con:response>response-N3f5776ff.241156af.0.167d11c8032.N7ffb</con:response>
                             </con:pipeline-node>
-                            <con:route-node name="RouteNode1" error-handler="error-N3f5776ff.241156af.0.167d11c8032.N7f7e">
+                            <con:route-node name="RN_validateSms" error-handler="error-N3f5776ff.241156af.0.167d11c8032.N7f7e">
                                 <con:context/>
                                 <con:actions>
                                     <con1:route>
                                         <con2:id>_ActionId-N3f5776ff.241156af.0.167d11c8032.N7fe5</con2:id>
+                                        <con1:service ref="authenticationDobleFactor_ESB/Proxies/ValidateSmsOtpCode" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                        <con1:operation>VALIDATE_SMS_OTP_CODE_PS</con1:operation>
                                         <con1:outboundTransform/>
                                         <con1:responseTransform/>
                                     </con1:route>
@@ -167,15 +169,17 @@
                         <con:operator>equals</con:operator>
                         <con:value/>
                         <con:flow>
-                            <con:pipeline-node name="PipelinePairNode2">
+                            <con:pipeline-node name="PPN_CREATENEWSMS">
                                 <con:request>request-N3f5776ff.241156af.0.167d11c8032.N7ff8</con:request>
                                 <con:response>response-N3f5776ff.241156af.0.167d11c8032.N7ff7</con:response>
                             </con:pipeline-node>
-                            <con:route-node name="RouteNode2" error-handler="error-N3f5776ff.241156af.0.167d11c8032.N7f0f">
+                            <con:route-node name="RN_CreateNewSms" error-handler="error-N3f5776ff.241156af.0.167d11c8032.N7f0f">
                                 <con:context/>
                                 <con:actions>
                                     <con1:route>
                                         <con2:id>_ActionId-N3f5776ff.241156af.0.167d11c8032.N7fe1</con2:id>
+                                        <con1:service ref="authenticationDobleFactor_ESB/Proxies/CreateNewSmsOtpCode" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                        <con1:operation>CREATE_NEW_SMS_OTP_CODE_PS</con1:operation>
                                         <con1:outboundTransform/>
                                         <con1:responseTransform/>
                                     </con1:route>
